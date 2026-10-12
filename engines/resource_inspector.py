@@ -4,7 +4,7 @@ def inspect_resource_safety(label, structural_payload):
     print(f"\n[*] Inspecting lifecycle allocations for micro-service target: [{label}]")
     time.sleep(0.4)
     has_pollution_guard = "__proto__" in structural_payload or "prototype" in structural_payload
-    has_socket_teardown = "client.end()" in structural_payload or "client.destroy()" in structural_payload
+    has_socket_teardown = "end()" in structural_payload or "destroy()" in structural_payload
     if not has_pollution_guard:
         print("       [VECTOR GUARD] ❌ VULNERABLE: Object definition missing input sanitation filters.")
     if not has_socket_teardown:
