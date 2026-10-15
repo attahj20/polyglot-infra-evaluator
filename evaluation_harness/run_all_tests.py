@@ -3,7 +3,7 @@ os.environ["PYTHONUTF8"] = "1"
 print("=================================================================")
 print("      POLYGLOT INFRA EVALUATOR - MASTER GRADING HARNESS          ")
 print("=================================================================\n")
-engines = ["engines/air_engine.py", "engines/mapr_matrix.js", "engines/rule_guard.py", "engines/cas_validator.py", "engines/fence_simulator.py", "engines/resource_inspector.py"]
+engines = ["engines/air_engine.py", "engines/mapr_matrix.js", "engines/rule_guard.py", "engines/cas_validator.py", "engines/fence_simulator.py", "engines/resource_inspector.py", "engines/dataannotation_guard.py"]
 for e in engines:
     print(f"[*] Executing Engine: {e}")
     cmd = ["python", e] if e.endswith(".py") else ["node", e]
@@ -18,4 +18,4 @@ for t in sorted(os.listdir("evaluation_harness")):
         print(f"[*] Grading Module Target: {t}")
         r = subprocess.run(["python", f"evaluation_harness/{t}"], capture_output=True, text=True, encoding="utf-8")
         print(r.stdout.strip())
-print("\n[HARNESS RUN COMPLETE] All 6 engines and 8 evaluation tasks verified successfully.\n")
+print("\n[HARNESS RUN COMPLETE] All 7 engines and 8 evaluation tasks verified successfully.\n")
